@@ -5,7 +5,6 @@
   "type": "module",
   "dependencies": {
     "@vitest/mocker": "^2.1.2",
-    "cookie": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
@@ -25,9 +24,9 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "jsdom": "^25.0.0",
+    "msw": "2.4.9",
     "json-server": "^1.0.0-beta.2",
     "mocha": "^10.7.3",
-    "msw": "^2.4.9",
     "vite": "^5.4.1",
     "vitest": "^2.1.2",
     "whatwg-fetch": "^3.6.2"
@@ -56,6 +55,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
     ]
   }
 }
