@@ -1,18 +1,12 @@
-{
-  "name": "react-hooks-fetch-crud-lab",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
+"type": "module",
   "dependencies": {
-    "@vitest/mocker": "^2.1.2",
-    "cookie": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
   },
-  "devDependencies": {
-    "@eslint/js": "^9.9.0",
+"devDependencies": {
     "@learn-co-curriculum/jest-learn-reporter": "^0.1.0",
+    "@eslint/js": "^9.9.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
@@ -26,11 +20,9 @@
     "globals": "^15.9.0",
     "jsdom": "^25.0.0",
     "json-server": "^1.0.0-beta.2",
-    "mocha": "^10.7.3",
-    "msw": "^2.4.9",
     "vite": "^5.4.1",
-    "vitest": "^2.1.2",
-    "whatwg-fetch": "^3.6.2"
+    "vitest": "^2.0.5",
+    "whatwg-fetch": "^3.6.2" // this is needed if CodeGrade is throwing fetch errors when running test suite
   },
   "scripts": {
     "dev": "vite",
@@ -39,23 +31,4 @@
     "lint": "eslint .",
     "test": "vitest run --reporter=@learn-co-curriculum/jest-learn-reporter --reporter=default",
     "preview": "vite preview"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
-}
