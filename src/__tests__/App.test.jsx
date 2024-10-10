@@ -7,8 +7,6 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
-
-
 import App from "../components/App";
 
 // beforeAll(() => server.listen());
@@ -17,6 +15,7 @@ import App from "../components/App";
 
 test("displays question prompts after fetching", async () => {
   render(<App />);
+
 
   fireEvent.click(screen.queryByText(/View Questions/));
 
