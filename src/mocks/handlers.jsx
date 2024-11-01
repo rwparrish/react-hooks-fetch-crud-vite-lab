@@ -1,19 +1,33 @@
-import { http } from "msw";
+import { http, HttpResponse } from "msw";
 import { data } from "./data";
 
 let questions = data;
 
 export const handlers = [
-  http.get("http://localhost:3000/questions", (req, res, ctx) => {
-    const response = res(ctx.json(questions))
-    console.log("HELLO", response)
-    return res(ctx.json(questions));
+  http.get("http://localhost:3000/questions", () => {
+    const response = HttpResponse.json(questions)
+    return response;
   }),
-  http.post("http://localhost:3000/questions", (req, res, ctx) => {
-    const id = questions[questions.length - 1]?.id + 1 || 1;
-    const question = { id, ...req.body };
-    questions.push(question);
-    return res(ctx.json(question));
+  http.post("http://localhost:3000/questions", async ({ request }) => {
+    // Parse the request body
+    const requestBody = await request.json()
+    
+    // Generate new ID
+    const id = questions[questions.length - 1]?.id + 1 || 1
+    
+    // Create new question with ID
+    const question = { id, ...requestBody }
+    
+    // Add to questions array
+    questions.push(question)
+    
+    // Log if needed
+    console.log("New question created:", question)
+    
+    // Return response using HttpResponse
+    return HttpResponse.json(question, {
+      status: 201
+    })
   }),
   http.delete("http://localhost:3000/questions/:id", (req, res, ctx) => {
     const { id } = req.params;
